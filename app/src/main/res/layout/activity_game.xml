@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainlayout"
+    android:background="@color/main_color"
+    tools:context=".GameActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="120dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintVertical_bias="0.503"
+                app:srcCompat="@drawable/ic_board_bg" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/imageView"
+                app:srcCompat="@drawable/ic_shadow_board_bg" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="88dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Puzzle Angka"
+                android:textColor="#8ECAE6"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/valueStep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-25dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="0"
+                android:textColor="#FB8500"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="@+id/textView4"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Langkah | 15 Huruf"
+                android:textColor="#8ECAE6"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/valueStep"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_A"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="00"
+                        android:text="A"
+                        android:textSize="48dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_B"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="01"
+                        android:text="B"
+                        android:textSize="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_A"
+                        app:layout_constraintStart_toEndOf="@+id/button_A"
+                        app:layout_constraintTop_toTopOf="@+id/button_A" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_C"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="02"
+                        android:text="C"
+                        android:textSize="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_B"
+                        app:layout_constraintStart_toEndOf="@+id/button_B"
+                        app:layout_constraintTop_toTopOf="@+id/button_B" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_D"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="03"
+                        android:text="D"
+                        android:textSize="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_C"
+                        app:layout_constraintStart_toEndOf="@+id/button_C"
+                        app:layout_constraintTop_toTopOf="@+id/button_C" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_E"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="10"
+                        android:text="E"
+                        android:textSize="48dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/button_A" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_F"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="11"
+                        android:text="F"
+                        android:textSize="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_E"
+                        app:layout_constraintStart_toEndOf="@+id/button_E"
+                        app:layout_constraintTop_toTopOf="@+id/button_E"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_G"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="12"
+                        android:text="G"
+                        android:textSize="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_F"
+                        app:layout_constraintStart_toEndOf="@+id/button_F"
+                        app:layout_constraintTop_toTopOf="@+id/button_F"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_H"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="13"
+                        android:text="H"
+                        android:textSize="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_G"
+                        app:layout_constraintStart_toEndOf="@+id/button_G"
+                        app:layout_constraintTop_toTopOf="@+id/button_G" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_I"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="20"
+                        android:text="I"
+                        android:textSize="48dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/button_E" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_J"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="21"
+                        android:text="J"
+                        android:textSize="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_I"
+                        app:layout_constraintStart_toEndOf="@+id/button_I"
+                        app:layout_constraintTop_toTopOf="@+id/button_I"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_K"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="22"
+                        android:text="K"
+                        android:textSize="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_J"
+                        app:layout_constraintStart_toEndOf="@+id/button_J"
+                        app:layout_constraintTop_toTopOf="@+id/button_J" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_L"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="23"
+                        android:text="L"
+                        android:textSize="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_K"
+                        app:layout_constraintStart_toEndOf="@+id/button_K"
+                        app:layout_constraintTop_toTopOf="@+id/button_K" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_M"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="30"
+                        android:text="M"
+                        android:textSize="48dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/button_I" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_N"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="31"
+                        android:text="N"
+                        android:textSize="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_M"
+                        app:layout_constraintStart_toEndOf="@+id/button_M"
+                        app:layout_constraintTop_toTopOf="@+id/button_M"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_O"
+                        style="@style/ButtonStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="32"
+                        android:text="O"
+                        android:textSize="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_N"
+                        app:layout_constraintStart_toEndOf="@+id/button_N"
+                        app:layout_constraintTop_toTopOf="@+id/button_N" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_free"
+                        style="@style/ButtonFreeStyle"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:tag="33"
+                        android:textSize="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_O"
+                        app:layout_constraintStart_toEndOf="@+id/button_O"
+                        app:layout_constraintTop_toTopOf="@+id/button_O"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </RelativeLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

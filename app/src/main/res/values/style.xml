@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ButtonStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:onClick">buttonClick</item>
+        <item name="android:background">@drawable/ic_box</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="ButtonFreeStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:onClick">buttonClick</item>
+        <item name="android:background">@drawable/ic_box_free</item>
+    </style>
+
+    <style name="MyActionButtonOverflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_menu_option</item>
+    </style>
+
+</resources>
