@@ -7,11 +7,17 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,11 +34,14 @@ public class GameActivity extends AppCompatActivity {
     private char[] alphabetChar;
     private TextView totalStep;
     private int stepCount = 0;
+    private Dialog popUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        popUp = new Dialog(this);
 
         loadViews();
         loadAlphabet();
@@ -53,6 +62,7 @@ public class GameActivity extends AppCompatActivity {
         return true;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -64,6 +74,9 @@ public class GameActivity extends AppCompatActivity {
                 loadDataToViews();
                 stepCount = 0;
                 totalStep.setText(Integer.toString(stepCount));
+                for (int i = 0; i < groupView.getChildCount(); i++) {
+                    buttons[i/4][i%4].setClickable(true);
+                }
                 break;
             case R.id.logout:
 //                Toast.makeText(this, "Keluar", Toast.LENGTH_SHORT).show();
@@ -140,10 +153,6 @@ public class GameActivity extends AppCompatActivity {
     public void buttonClick(View view) {
         AppCompatButton button = (AppCompatButton) view;
 
-        String pos = button.getTag().toString();
-        //You get a position of that button
-//        Log.e("position", "tes" + pos);
-
         int x = button.getTag().toString().charAt(0) - '0';
         int y = button.getTag().toString().charAt(1) - '0';
 
@@ -160,6 +169,17 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    public void showPopUp() {
+
+        ImageView btnContinue;
+
+        popUp.setContentView(R.layout.winner_popup);
+        btnContinue = popUp.findViewById(R.id.buttonContinue);
+        btnContinue.setOnClickListener(view -> popUp.dismiss());
+        popUp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        popUp.show();
+    }
+
     private void checkWin() {
         boolean isWin = false;
         char[] alphabet = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O'};
@@ -174,7 +194,8 @@ public class GameActivity extends AppCompatActivity {
             }
         }
         if (isWin) {
-            Toast.makeText(this, "You Wint It", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "You Wint It", Toast.LENGTH_SHORT).show();
+            showPopUp();
             for (int i = 0; i < groupView.getChildCount(); i++) {
                 buttons[i/4][i%4].setClickable(false);
             }
